@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C4C6D512227147800F1E81D /* KSNavigationToolbarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C6D4F2227147800F1E81D /* KSNavigationToolbarProtocol.swift */; };
+		4C4C6D522227147800F1E81D /* KSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C6D502227147800F1E81D /* KSNavigationController.swift */; };
+		FAA58FCB1D53BF93000CD0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA58FCA1D53BF93000CD0D9 /* AppDelegate.swift */; };
+		FAA58FCD1D53BF93000CD0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA58FCC1D53BF93000CD0D9 /* Assets.xcassets */; };
+		FAA58FD01D53BF93000CD0D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA58FCE1D53BF93000CD0D9 /* MainMenu.xib */; };
+		FAA58FD91D53BFD3000CD0D9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA58FD71D53BFD3000CD0D9 /* TestViewController.swift */; };
+		FAA58FDA1D53BFD3000CD0D9 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA58FD81D53BFD3000CD0D9 /* TestViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C4C6D4F2227147800F1E81D /* KSNavigationToolbarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KSNavigationToolbarProtocol.swift; path = ../../lib/KSNavigationToolbarProtocol.swift; sourceTree = "<group>"; };
+		4C4C6D502227147800F1E81D /* KSNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KSNavigationController.swift; path = ../../lib/KSNavigationController.swift; sourceTree = "<group>"; };
+		FAA58FC71D53BF93000CD0D9 /* KSNavigationControllerExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSNavigationControllerExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA58FCA1D53BF93000CD0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAA58FCC1D53BF93000CD0D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAA58FCF1D53BF93000CD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FAA58FD11D53BF93000CD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA58FD71D53BFD3000CD0D9 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FAA58FD81D53BFD3000CD0D9 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		FAB66E3E1D64EE7E001AD920 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MainMenu.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAA58FC41D53BF93000CD0D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAA58FBE1D53BF93000CD0D9 = {
+			isa = PBXGroup;
+			children = (
+				FAA58FC91D53BF93000CD0D9 /* KSNavigationControllerExampleSwift */,
+				FAA58FC81D53BF93000CD0D9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAA58FC81D53BF93000CD0D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAA58FC71D53BF93000CD0D9 /* KSNavigationControllerExampleSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAA58FC91D53BF93000CD0D9 /* KSNavigationControllerExampleSwift */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C6D502227147800F1E81D /* KSNavigationController.swift */,
+				4C4C6D4F2227147800F1E81D /* KSNavigationToolbarProtocol.swift */,
+				FAA58FCA1D53BF93000CD0D9 /* AppDelegate.swift */,
+				FAA58FCC1D53BF93000CD0D9 /* Assets.xcassets */,
+				FAA58FCE1D53BF93000CD0D9 /* MainMenu.xib */,
+				FAA58FD11D53BF93000CD0D9 /* Info.plist */,
+				FAA58FD71D53BFD3000CD0D9 /* TestViewController.swift */,
+				FAA58FD81D53BFD3000CD0D9 /* TestViewController.xib */,
+			);
+			path = KSNavigationControllerExampleSwift;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAA58FC61D53BF93000CD0D9 /* KSNavigationControllerExampleSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAA58FD41D53BF93000CD0D9 /* Build configuration list for PBXNativeTarget "KSNavigationControllerExampleSwift" */;
+			buildPhases = (
+				FAA58FC31D53BF93000CD0D9 /* Sources */,
+				FAA58FC41D53BF93000CD0D9 /* Frameworks */,
+				FAA58FC51D53BF93000CD0D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KSNavigationControllerExampleSwift;
+			productName = KSNavigationControllerExampleSwift;
+			productReference = FAA58FC71D53BF93000CD0D9 /* KSNavigationControllerExampleSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAA58FBF1D53BF93000CD0D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Alex;
+				TargetAttributes = {
+					FAA58FC61D53BF93000CD0D9 = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 1010;
+					};
+				};
+			};
+			buildConfigurationList = FAA58FC21D53BF93000CD0D9 /* Build configuration list for PBXProject "KSNavigationControllerExampleSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAA58FBE1D53BF93000CD0D9;
+			productRefGroup = FAA58FC81D53BF93000CD0D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAA58FC61D53BF93000CD0D9 /* KSNavigationControllerExampleSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAA58FC51D53BF93000CD0D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA58FCD1D53BF93000CD0D9 /* Assets.xcassets in Resources */,
+				FAA58FDA1D53BFD3000CD0D9 /* TestViewController.xib in Resources */,
+				FAA58FD01D53BF93000CD0D9 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAA58FC31D53BF93000CD0D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAA58FD91D53BFD3000CD0D9 /* TestViewController.swift in Sources */,
+				4C4C6D522227147800F1E81D /* KSNavigationController.swift in Sources */,
+				FAA58FCB1D53BF93000CD0D9 /* AppDelegate.swift in Sources */,
+				4C4C6D512227147800F1E81D /* KSNavigationToolbarProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FAA58FCE1D53BF93000CD0D9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAA58FCF1D53BF93000CD0D9 /* Base */,
+				FAB66E3E1D64EE7E001AD920 /* ar */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAA58FD21D53BF93000CD0D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAA58FD31D53BF93000CD0D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FAA58FD51D53BF93000CD0D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KSNavigationControllerExampleSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Alex.KSNavigationControllerExampleSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		FAA58FD61D53BF93000CD0D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = KSNavigationControllerExampleSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Alex.KSNavigationControllerExampleSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAA58FC21D53BF93000CD0D9 /* Build configuration list for PBXProject "KSNavigationControllerExampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA58FD21D53BF93000CD0D9 /* Debug */,
+				FAA58FD31D53BF93000CD0D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAA58FD41D53BF93000CD0D9 /* Build configuration list for PBXNativeTarget "KSNavigationControllerExampleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAA58FD51D53BF93000CD0D9 /* Debug */,
+				FAA58FD61D53BF93000CD0D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAA58FBF1D53BF93000CD0D9 /* Project object */;
+}
