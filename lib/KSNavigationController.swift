@@ -154,7 +154,7 @@ public class KSNavigationController: NSViewController {
             return self.rootViewController;
         }
     }
-    
+
     public var toolbarHeight: CGFloat = 44
     public var tintColor: NSColor = NSColor.blue
 
@@ -276,7 +276,6 @@ public class KSNavigationController: NSViewController {
     }
 
     // MARK: Private Methods
-    
 
     private func install(vc: NSViewController, addVC: (() -> Void)? = nil) {
         // add toolbar to the top of the screen
@@ -350,7 +349,7 @@ public class KSNavigationController: NSViewController {
                     lb.action = #selector(backButtonAction(_:))
                     let style = NSMutableParagraphStyle()
                     style.alignment = .center
-                    
+
                     let attributes = [
                         NSAttributedString.Key.foregroundColor: tintColor,
                             //NSAttributedStringKey.font: font,
@@ -389,7 +388,7 @@ public class KSNavigationController: NSViewController {
             _activeView = vv
         }
     }
-    
+
     private func performTransform(animate: Bool,
                                   fromView: NSView?,
                                   toView: NSView,
@@ -425,7 +424,7 @@ public class KSNavigationController: NSViewController {
     }
 
     // MARK: - Animations
-    
+
     open func defaultPushAnimation() -> AnimationBlock {
         return { [weak self] (_, _) in
             let containerViewBounds = self?._activeView?.bounds ?? .zero
@@ -477,10 +476,10 @@ public class KSNavigationController: NSViewController {
             return ([slideToRightFromCenterAnimation], [slideToRightAnimation])
         }
     }
-    
+
     // MARK: - Actions
     @objc
     private func backButtonAction(_ sender: Any) {
-        popViewControllerAnimated(true)
+        let _ = popViewControllerAnimated(true)
     }
 }
