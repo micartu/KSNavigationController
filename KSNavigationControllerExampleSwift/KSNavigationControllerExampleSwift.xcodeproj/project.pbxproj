@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C4C6D512227147800F1E81D /* KSNavigationToolbarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C6D4F2227147800F1E81D /* KSNavigationToolbarProtocol.swift */; };
 		4C4C6D522227147800F1E81D /* KSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C6D502227147800F1E81D /* KSNavigationController.swift */; };
+		4C8ED61A2227C02200D1A6AA /* KSStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8ED6182227C02200D1A6AA /* KSStack.swift */; };
+		4C8ED61B2227C02200D1A6AA /* KSNavigationControllerCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8ED6192227C02200D1A6AA /* KSNavigationControllerCompatible.swift */; };
 		FAA58FCB1D53BF93000CD0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA58FCA1D53BF93000CD0D9 /* AppDelegate.swift */; };
 		FAA58FCD1D53BF93000CD0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA58FCC1D53BF93000CD0D9 /* Assets.xcassets */; };
 		FAA58FD01D53BF93000CD0D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA58FCE1D53BF93000CD0D9 /* MainMenu.xib */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		4C4C6D4F2227147800F1E81D /* KSNavigationToolbarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KSNavigationToolbarProtocol.swift; path = ../../lib/KSNavigationToolbarProtocol.swift; sourceTree = "<group>"; };
 		4C4C6D502227147800F1E81D /* KSNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KSNavigationController.swift; path = ../../lib/KSNavigationController.swift; sourceTree = "<group>"; };
+		4C8ED6182227C02200D1A6AA /* KSStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KSStack.swift; path = ../../lib/KSStack.swift; sourceTree = "<group>"; };
+		4C8ED6192227C02200D1A6AA /* KSNavigationControllerCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KSNavigationControllerCompatible.swift; path = ../../lib/KSNavigationControllerCompatible.swift; sourceTree = "<group>"; };
 		FAA58FC71D53BF93000CD0D9 /* KSNavigationControllerExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSNavigationControllerExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA58FCA1D53BF93000CD0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAA58FCC1D53BF93000CD0D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		FAA58FC91D53BF93000CD0D9 /* KSNavigationControllerExampleSwift */ = {
 			isa = PBXGroup;
 			children = (
+				4C8ED6192227C02200D1A6AA /* KSNavigationControllerCompatible.swift */,
+				4C8ED6182227C02200D1A6AA /* KSStack.swift */,
 				4C4C6D502227147800F1E81D /* KSNavigationController.swift */,
 				4C4C6D4F2227147800F1E81D /* KSNavigationToolbarProtocol.swift */,
 				FAA58FCA1D53BF93000CD0D9 /* AppDelegate.swift */,
@@ -144,6 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA58FD91D53BFD3000CD0D9 /* TestViewController.swift in Sources */,
+				4C8ED61B2227C02200D1A6AA /* KSNavigationControllerCompatible.swift in Sources */,
+				4C8ED61A2227C02200D1A6AA /* KSStack.swift in Sources */,
 				4C4C6D522227147800F1E81D /* KSNavigationController.swift in Sources */,
 				FAA58FCB1D53BF93000CD0D9 /* AppDelegate.swift in Sources */,
 				4C4C6D512227147800F1E81D /* KSNavigationToolbarProtocol.swift in Sources */,

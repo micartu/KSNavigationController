@@ -1,5 +1,5 @@
 //
-//  KSNavigationController.m
+//  KSNavigationController.swift
 //
 //  Copyright © 2016 Alex Gordiyenko. All rights reserved.
 //  Modified © 2018 Michael Artuerhof. All rights reserved.
@@ -33,89 +33,17 @@ import AppKit
 
 public typealias AnimationBlock = (_ fromView: NSView?, _ toView: NSView?) -> (fromViewAnimations: [CAAnimation], toViewAnimations: [CAAnimation])
 
-// MARK: Stack
-
-class _KSStackItem<T> : NSObject {
-    var value: T
-    var next: _KSStackItem<T>?
-    init(_ value: T) {
-        self.value = value
-    }
-}
-
-class _KSStack<T>: NSObject {
-    fileprivate var _head: _KSStackItem<T>?
-    fileprivate var _count: UInt = 0
-    var headValue: T? {
-        get {
-            return self._head?.value
-        }
-    }
-    var count: UInt {
-        get {
-            return self._count
-        }
-    }
-
-    func push(_ object: T) -> Void {
-        let item = _KSStackItem(object)
-        item.next = self._head
-        self._head = item
-        self._count += 1
-    }
-
-    func pop() -> T? {
-        guard self._head != nil else {
-            NSException(name: NSExceptionName.internalInconsistencyException, reason: "Popped an empty stack", userInfo: nil).raise()
-            return nil
-        }
-
-        let retVal = self._head?.value
-        self._head = self._head?.next
-        self._count -= 1
-        return retVal
-    }
-
-    func iterate(_ block: (T) -> (Void)) -> Void {
-        var item = self._head
-        while true {
-            if let item = item {
-                block(item.value)
-            } else {
-                break
-            }
-
-            item = item?.next
-        }
-    }
-}
-
-// MARK: KSNavigationControllerCompatible
-
-/**
- Protocol your `NSViewController` subclass must conform to.
-
- Conform to this protocol if you want your `NSViewController` subclass to work with `KSNavigationController`.
- */
-public protocol KSNavigationControllerCompatible {
-    /**
-     Navigation controller object which holds your `NSViewController` subclass.
-
-     Warning: Do not set this properly by yourself.
-     */
-    var navigationController: KSNavigationController? { get set }
-}
-
-// MARK: KSNavigationController
-
 /**
  This class mimics UIKit's `UINavigationController` behavior.
 
  Navigation bar is not implemented. All methods must be called from main thread.
  */
 public class KSNavigationController: NSViewController {
+    /// bounds which the controller should be using for animation of transitions
+    public var bounds: NSRect? = nil
 
-    private lazy var __addRootViewOnce: () = {
+    private lazy var __addRootViewOnce: () = { [weak self] in
+        guard let `self` = self else { return }
         self.install(vc: self.rootViewController)
     }()
 
@@ -131,10 +59,46 @@ public class KSNavigationController: NSViewController {
             self._stack.iterate { (object: NSViewController) -> (Void) in
                 retVal.append(object)
             }
-
             retVal.append(self.rootViewController)
-            return retVal
+            return retVal.reversed()
         }
+    }
+
+    /** sets stack of view controllers, chooses right movement direction (if animated) and moves to them */
+    public func set(viewControllers: [NSViewController], animated: Bool) {
+        guard viewControllers.count > 0 else { return }
+        let backwards: Bool
+        let lastVC = viewControllers.last!
+        if self.viewControllers.contains(lastVC) ||
+            rootViewController == lastVC {
+            backwards = true
+        } else {
+            backwards = false
+        }
+        rootViewController = viewControllers.first!
+        var nextVC = rootViewController
+        // recreate stack of views controllers:
+        _stack = _KSStack<NSViewController>()
+        for i in viewControllers.indices {
+            if i == 0 { continue } // skip the first element, it was already set as a root one
+            let vc = viewControllers[i]
+            _stack.push(vc)
+            // put the last item to the next view controller
+            if i == viewControllers.count - 1 {
+                nextVC = vc
+            }
+        }
+        let fromV = self._activeView!
+        if fromV == nextVC.view { return }
+        install(vc: nextVC) { [weak self] in
+            self?.view.addSubview(nextVC.view, positioned: .below,
+                                  relativeTo: fromV)
+        }
+        let ani = backwards ? defaultPopAnimation() : defaultPushAnimation()
+        performTransform(animate: animated,
+                         fromView: fromV,
+                         toView: nextVC.view,
+                         animation: ani)
     }
 
     /** Number of view controllers currently in stack. */
@@ -171,7 +135,7 @@ public class KSNavigationController: NSViewController {
      - parameter rootViewController: The view controller that resides at the bottom of the navigation stack.
      - returns: The initialized navigation controller object or nil if there was a problem initializing the object.
      */
-    init?(rootViewController: NSViewController) {
+    public init?(rootViewController: NSViewController) {
         self.rootViewController = rootViewController
         super.init(nibName: nil, bundle: nil)
         if var rootViewController = rootViewController as? KSNavigationControllerCompatible {
@@ -182,7 +146,7 @@ public class KSNavigationController: NSViewController {
         }
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         self.rootViewController = NSViewController()
         super.init(coder: coder)
     }
@@ -341,7 +305,7 @@ public class KSNavigationController: NSViewController {
                 }
                 if let lb = bvc.leftButton {
                     addLeftButton(lb)
-                } else {
+                } else if _stack.count > 0 {
                     let lb = NSButton(frame: NSRect(x: 0, y: 0, width: 100, height: 22))
                     let title = "< " + NSLocalizedString("Back", comment: "Back button")
                     lb.isBordered = false
@@ -427,7 +391,7 @@ public class KSNavigationController: NSViewController {
 
     open func defaultPushAnimation() -> AnimationBlock {
         return { [weak self] (_, _) in
-            let containerViewBounds = self?._activeView?.bounds ?? .zero
+            let containerViewBounds = self?.bounds ?? self?._activeView?.bounds ?? .zero
 
             let slideToLeftTransform = CATransform3DMakeTranslation(-containerViewBounds.width, 0, 0)
             let slideToLeftAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
@@ -453,7 +417,7 @@ public class KSNavigationController: NSViewController {
 
     open func defaultPopAnimation() -> AnimationBlock {
         return { [weak self] (_, _) in
-            let containerViewBounds = self?._activeView?.bounds ?? .zero
+            let containerViewBounds = self?.bounds ?? self?._activeView?.bounds ?? .zero
 
             let slideToRightTransform = CATransform3DMakeTranslation(-containerViewBounds.width / 2, 0, 0)
             let slideToRightAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
