@@ -357,16 +357,34 @@ public class KSNavigationController: NSViewController {
                                   fromView: NSView?,
                                   toView: NSView,
                                   animation: @escaping AnimationBlock) {
+        var fv: NSView? = nil // screen copy of fromView
         let afterAnimation = {
-            fromView?.removeFromSuperview()
+            fv?.removeFromSuperview()
+            if fv == nil {
+                fromView?.removeFromSuperview()
+            }
             toView.layer?.removeAllAnimations()
         }
         if animate {
+            // try to attach a snapshot of last view
+            // and remove the original one or you'll see rects of
+            // textfields not moving with the rest and other artifacts
+            if let v = fromView {
+                let snapshot = v.snapshot
+                let snapView = NSImageView(frame: v.bounds)
+                snapView.image = snapshot
+                snapView.imageScaling = .scaleProportionallyUpOrDown
+                snapView.imageAlignment = .alignCenter
+                view.addSubview(snapView,
+                                positioned: .above, relativeTo: v)
+                v.removeFromSuperview()
+                fv = snapView
+            }
             CATransaction.begin()
             CATransaction.setCompletionBlock {
                 afterAnimation()
             }
-            animateTransition(fromView: fromView, toView: toView, animation: animation)
+            animateTransition(fromView: fv, toView: toView, animation: animation)
             CATransaction.commit()
         } else {
             afterAnimation()
@@ -445,5 +463,24 @@ public class KSNavigationController: NSViewController {
     @objc
     private func backButtonAction(_ sender: Any) {
         let _ = popViewControllerAnimated(true)
+    }
+}
+
+// MARK: - NSView snapshot extensions
+
+extension NSView {
+    internal var snapshot: NSImage {
+        guard let bitmapRep = bitmapImageRepForCachingDisplay(in: bounds) else { return NSImage() }
+        cacheDisplay(in: bounds, to: bitmapRep)
+        let image = NSImage()
+        image.addRepresentation(bitmapRep)
+        bitmapRep.size = bounds.size.doubleScale()
+        return image
+    }
+}
+
+extension CGSize {
+    internal func doubleScale() -> CGSize {
+        return CGSize(width: width * 2, height: height * 2)
     }
 }
