@@ -222,9 +222,6 @@ public class KSNavigationController: NSViewController {
                          fromView: popFrom,
                          toView: nextView!,
                          animation: defaultPopAnimation())
-        if let ev = retVal as? KSNavigationEventProtocol {
-            ev.didMove(toParent: nil)
-        }
         return retVal
     }
 
@@ -469,7 +466,10 @@ public class KSNavigationController: NSViewController {
     // MARK: - Actions
     @objc
     private func backButtonAction(_ sender: Any) {
-        let _ = popViewControllerAnimated(true)
+        let vc = popViewControllerAnimated(true)
+        if let ev = vc as? KSNavigationEventProtocol {
+            ev.didMove(toParent: nil)
+        }
     }
 }
 
