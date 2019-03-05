@@ -187,6 +187,9 @@ public class KSNavigationController: NSViewController {
                          fromView: pushFrom,
                          toView: nextView,
                          animation: defaultPushAnimation())
+        if let ev = viewController as? KSNavigationEventProtocol {
+            ev.didMove(toParent: self)
+        }
     }
 
     /**
@@ -194,6 +197,7 @@ public class KSNavigationController: NSViewController {
      - parameter animated: Set this value to YES to animate the transition, NO otherwise.
      - returns: The popped view controller.
      */
+    @discardableResult
     public func popViewControllerAnimated(_ animated: Bool) -> NSViewController? {
         if self._stack.count == 0 {
             return nil
@@ -218,6 +222,9 @@ public class KSNavigationController: NSViewController {
                          fromView: popFrom,
                          toView: nextView!,
                          animation: defaultPopAnimation())
+        if let ev = retVal as? KSNavigationEventProtocol {
+            ev.didMove(toParent: nil)
+        }
         return retVal
     }
 
