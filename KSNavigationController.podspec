@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 	s.osx.deployment_target = '10.11'
 	s.name             = 'KSNavigationController'
-	s.version          = '0.4.0'
+	s.version          = '0.4.1'
 	s.summary          = 'Mimics behaviour of UINavigationController but for OSX'
 	s.requires_arc 	   = true
 
